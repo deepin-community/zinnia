@@ -1,0 +1,99 @@
+zinnia (0.06-6+u001) UNRELEASED; urgency=medium
+
+  * update
+
+ -- Debian Input Method Team <debian-input-method@lists.debian.org>  Sun, 24 Apr 2022 10:45:47 +0800
+
+zinnia (0.06-6) unstable; urgency=high
+
+  * Team upload.
+  * Remove BD python-all-dev (Closes: #938890)
+
+ -- Changwoo Ryu <cwryu@debian.org>  Sun, 19 Jan 2020 13:30:29 +0900
+
+zinnia (0.06-5) unstable; urgency=high
+
+  * Team upload.
+  * Remove python-zinnia binary package (Closes: #938890)
+    - There's no rdep; not worth to port for Python 3.
+
+ -- Changwoo Ryu <cwryu@debian.org>  Wed, 11 Dec 2019 15:58:34 +0900
+
+zinnia (0.06-4) unstable; urgency=medium
+
+  * Set maintainer to Debian Input Method Team but keep the package
+    as orphaned.
+  * debian/control:
+    + Bump debhelper compat to v11.
+    + Bump Standards-Version to 4.2.1.
+    + Update Vcs-* fields and use git repo under Salsa Debian Input
+      Method Team group.
+    + Mark libzinnia-doc as Multi-Arch: foreign.
+  * debian/rules:
+    + Use dh syntax.
+    + Use dh_strip dbgsym migration.
+  * debian/doc-base: Install docs into -dev package's /usr/share/doc/
+    directory instead.
+  * debian/patches: Add patch to remove unnecessary manipulation of
+    gcc flags. The flags will be provided by dpkg-buildflags through
+    debian/rules file.
+
+ -- Boyuan Yang <byang@debian.org>  Wed, 28 Nov 2018 14:32:35 -0500
+
+zinnia (0.06-3) unstable; urgency=medium
+
+  * QA upload.
+  * Set maintainer to the QA team. Closes: #899754.
+  * Bump dh to level 8 (highest that builds...).
+  * Build-Depend on dh-python.
+  * Priority optional.
+  * Fix typos in desc.
+
+ -- Adam Borowski <kilobyte@angband.pl>  Sun, 27 May 2018 23:10:13 +0200
+
+zinnia (0.06-2.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Fix build failure with GCC 6. Closes: #811877.
+  * Bump standards version.
+
+ -- Matthias Klose <doko@debian.org>  Thu, 28 Jul 2016 13:43:07 +0200
+
+zinnia (0.06-2) unstable; urgency=low
+
+  * Team upload.
+  * Use dh-autoreconf for FTBFS of ppc64el. (Closes: #735087)
+  * Transition from dh_pysupport to dh_python2.
+  * Fix debian-rules-missing-recommended-target
+  * Bump std-ver from 3.8.4 to 3.9.5.
+
+ -- Aron Xu <aron@debian.org>  Sat, 08 Feb 2014 22:56:38 +0800
+
+zinnia (0.06-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/source/format: 3.0
+  * debian/control:
+    - bump standards version to 3.8.4.
+    - depends on ${misc:Depends}
+    - change maintainer to IME Packaging Team, add me to uploaders.
+    - update Vcs-* fields.
+  * change dpatch to quilt.
+  * Fix "uses pythonX.Y/site-packages for Python >= 2.6" (Closes: #557945)
+    - update debian/rules
+
+ -- LI Daobing <lidaobing@debian.org>  Mon, 21 Jun 2010 19:55:28 +0800
+
+zinnia (0.05-1) unstable; urgency=low
+
+  * new upstream release.
+  * debian/libzinnia-dev.install: install pkgconfig.
+  * debian/copyright: updated. the upstream change license from GPL to BSD.
+
+ -- LI Daobing <lidaobing@debian.org>  Sat, 06 Jun 2009 14:39:18 +0800
+
+zinnia (0.04-1) unstable; urgency=low
+
+  * Initial release (closes: #514969)
+
+ -- LI Daobing <lidaobing@debian.org>  Wed, 22 Apr 2009 19:36:16 +0800

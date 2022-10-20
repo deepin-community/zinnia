@@ -1,0 +1,186 @@
+From: Boyuan Yang <byang@debian.org>
+Date: Wed, 28 Nov 2018 14:32:21 -0500
+Subject: configure.in: Comment out unnecessary manipulation of gcc flags
+
+---
+ configure.in | 152 +++++++++++++++++++++++++++++------------------------------
+ 1 file changed, 76 insertions(+), 76 deletions(-)
+
+diff --git a/configure.in b/configure.in
+index 87211f6..9c2cb41 100644
+--- a/configure.in
++++ b/configure.in
+@@ -59,38 +59,38 @@ AC_ARG_WITH(pkgconfigdir,
+ AC_SUBST([pkgconfigdir])
+ AC_MSG_NOTICE([pkgconfig directory is ${pkgconfigdir}])
+ 
+-dnl
+-dnl check gcc
+-dnl
+-if test -n "$GCC"; then
+-   CFLAGS="-O3 -Wall"
+-   CXXFLAGS="-O3 -Wall"
+-   AC_MSG_RESULT($ac_cv_x86_sse)
+-fi
+-
+-AC_DEFUN(ADD_CC_FLAG, [
+-  AC_MSG_CHECKING(whether ${CC-cc} accepts $1)
+-  AC_LANG_SAVE
+-  AC_LANG_C
+-  XCFLAGS="$CFLAGS"
+-  CFLAGS="$CFLAGS $1"
+-  AC_TRY_LINK([], [],
+-        [AC_MSG_RESULT([ ok, adding $1 to CFLAGS])],
+-        [CFLAGS="$XCFLAGS"])
+-  AC_LANG_RESTORE
+-])
+-
+-AC_DEFUN(ADD_CXX_FLAG, [
+-  AC_MSG_CHECKING(whether ${CXX-c++} accepts $1)
+-  AC_LANG_SAVE
+-  AC_LANG_CPLUSPLUS
+-  XCXXFLAGS="$CXXFLAGS"
+-  CXXFLAGS="$CXXFLAGS $1"
+-  AC_TRY_LINK([], [],
+-        [AC_MSG_RESULT([ ok, adding $1 to CXXFLAGS])],
+-        [CXXFLAGS="$XCXXFLAGS"])
+-  AC_LANG_RESTORE
+-])
++#dnl
++#dnl check gcc
++#dnl
++#if test -n "$GCC"; then
++#   CFLAGS="-O3 -Wall"
++#   CXXFLAGS="-O3 -Wall"
++#   AC_MSG_RESULT($ac_cv_x86_sse)
++#fi
++#
++#AC_DEFUN(ADD_CC_FLAG, [
++#  AC_MSG_CHECKING(whether ${CC-cc} accepts $1)
++#  AC_LANG_SAVE
++#  AC_LANG_C
++#  XCFLAGS="$CFLAGS"
++#  CFLAGS="$CFLAGS $1"
++#  AC_TRY_LINK([], [],
++#        [AC_MSG_RESULT([ ok, adding $1 to CFLAGS])],
++#        [CFLAGS="$XCFLAGS"])
++#  AC_LANG_RESTORE
++#])
++#
++#AC_DEFUN(ADD_CXX_FLAG, [
++#  AC_MSG_CHECKING(whether ${CXX-c++} accepts $1)
++#  AC_LANG_SAVE
++#  AC_LANG_CPLUSPLUS
++#  XCXXFLAGS="$CXXFLAGS"
++#  CXXFLAGS="$CXXFLAGS $1"
++#  AC_TRY_LINK([], [],
++#        [AC_MSG_RESULT([ ok, adding $1 to CXXFLAGS])],
++#        [CXXFLAGS="$XCXXFLAGS"])
++#  AC_LANG_RESTORE
++#])
+ 
+ # On Intel systems with gcc, we may need to compile with -mieee-fp to
+ #  get full support for IEEE floating point.
+@@ -99,22 +99,22 @@ AC_DEFUN(ADD_CXX_FLAG, [
+ #
+ # On AIX systems, we need to limit the amount of stuff that goes in
+ # the TOC.
+-case "$host" in
+-changequote(,)dnl
+-  i[3456789]86-*-*)
+-changequote([,])dnl
+-    ADD_CC_FLAG(-mieee-fp)
+-    ADD_CXX_FLAG(-mieee-fp)
+-  ;;
+-  alpha*-*-*)
+-    ADD_CC_FLAG(-mieee)
+-    ADD_CXX_FLAG(-mieee)
+-  ;;
+-  *ibm-aix4*)
+-    ADD_CC_FLAG(-mminimal-toc)
+-    ADD_CXX_FLAG(-mminimal-toc)
+-  ;;
+-esac
++#case "$host" in
++#changequote(,)dnl
++#  i[3456789]86-*-*)
++#changequote([,])dnl
++#    ADD_CC_FLAG(-mieee-fp)
++#    ADD_CXX_FLAG(-mieee-fp)
++#  ;;
++#  alpha*-*-*)
++#    ADD_CC_FLAG(-mieee)
++#    ADD_CXX_FLAG(-mieee)
++#  ;;
++#  *ibm-aix4*)
++#    ADD_CC_FLAG(-mminimal-toc)
++#    ADD_CXX_FLAG(-mminimal-toc)
++#  ;;
++#esac
+ 
+ dnl
+ dnl check C++ features
+@@ -257,35 +257,35 @@ if test "x$config_error" = xyes ; then
+ fi
+ AC_MSG_RESULT([yes])
+ 
+-dnl check if the assembler supports SSE instructions
+-AC_DEFUN([AC_CHECK_X86_SSE],
+-[
+-AC_MSG_CHECKING([for x86 SSE instructions])
+-AC_CACHE_VAL(ac_cv_x86_sse,
+-[
+-AC_TRY_COMPILE(,
+-[
+-#if defined(__GNUC__) && defined(__i386__)
+-__asm__("movups %xmm0, (%esp)");
+-#else
+-error Not gcc on x86
+-#endif
+-],
+-ac_cv_x86_sse=yes,
+-ac_cv_x86_sse=no)
+-])
+-])
+-
+-AC_CHECK_X86_SSE
++#dnl check if the assembler supports SSE instructions
++#AC_DEFUN([AC_CHECK_X86_SSE],
++#[
++#AC_MSG_CHECKING([for x86 SSE instructions])
++#AC_CACHE_VAL(ac_cv_x86_sse,
++#[
++#AC_TRY_COMPILE(,
++#[
++##if defined(__GNUC__) && defined(__i386__)
++#__asm__("movups %xmm0, (%esp)");
++##else
++#error Not gcc on x86
++##endif
++#],
++#ac_cv_x86_sse=yes,
++#ac_cv_x86_sse=no)
++#])
++#])
+ 
+-if test "x$ac_cv_x86_sse" = "xyes"; then
+-   ADD_CC_FLAG(-msse)
+-   ADD_CXX_FLAG(-msse)
+-   ADD_CC_FLAG(-msse2)
+-   ADD_CXX_FLAG(-msse2)   
+-   ADD_CC_FLAG(-mmmx)
+-   ADD_CXX_FLAG(-mmmx)
+-fi   
++#AC_CHECK_X86_SSE
++#
++#if test "x$ac_cv_x86_sse" = "xyes"; then
++#   ADD_CC_FLAG(-msse)
++#   ADD_CXX_FLAG(-msse)
++#   ADD_CC_FLAG(-msse2)
++#   ADD_CXX_FLAG(-msse2)   
++#   ADD_CC_FLAG(-mmmx)
++#   ADD_CXX_FLAG(-mmmx)
++#fi   
+ 
+ AC_SUBST(datarootdir)
+ AM_CONFIG_HEADER(config.h)

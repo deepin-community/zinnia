@@ -1,0 +1,1 @@
+{"project":"zinnia","type":"","version":"0.06","hierarchy":"base","priority":"","maintainer":"","packager":"","builddeps":" debhelper (\u003e= 11), ","homepage":" https://taku910.github.io/zinnia/","git":"https://salsa.debian.org/input-method-team/zinnia.git"}

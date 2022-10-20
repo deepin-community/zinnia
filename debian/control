@@ -1,0 +1,108 @@
+Source: zinnia
+Priority: optional
+Maintainer: Debian Input Method Team <debian-input-method@lists.debian.org>
+Uploaders:
+ Boyuan Yang <byang@debian.org>,
+Build-Depends:
+ debhelper (>= 11),
+Standards-Version: 4.2.1
+Section: libs
+Homepage: https://taku910.github.io/zinnia/
+Vcs-Git: https://salsa.debian.org/input-method-team/zinnia.git
+Vcs-Browser: https://salsa.debian.org/input-method-team/zinnia
+
+Package: libzinnia-dev
+Section: libdevel
+Architecture: any
+Depends:
+ libzinnia0 (= ${binary:Version}),
+ ${misc:Depends},
+Suggests:
+ libzinnia-doc,
+Description: development files for the zinnia library
+ Zinnia provides a simple, customizable, and portable dynamic OCR
+ system for hand-written input, based on Support Vector Machines.
+ .
+ Zinnia simply receives user pen strokes as coordinate data and outputs
+ the best matching characters sorted by SVM confidence. To maintain
+ portability, it has no rendering functionality. In addition to
+ recognition, Zinnia provides a training module capable of creating
+ highly efficient handwriting recognition models.
+ .
+ This package is needed to compile programs against libzinnia0,
+ as only it includes the header files and static libraries (optionally)
+ needed for compiling.
+
+Package: libzinnia-doc
+Section: doc
+Architecture: all
+Multi-Arch: foreign
+Depends:
+ ${misc:Depends},
+Description: documentation files for the zinnia library
+ Zinnia provides a simple, customizable, and portable dynamic OCR
+ system for hand-written input, based on Support Vector Machines.
+ .
+ Zinnia simply receives user pen strokes as coordinate data and outputs
+ the best matching characters sorted by SVM confidence. To maintain
+ portability, it has no rendering functionality. In addition to
+ recognition, Zinnia provides a training module capable of creating
+ highly efficient handwriting recognition models.
+ .
+ This package provide the documentation files for the zinnia library.
+
+Package: libzinnia0
+Architecture: any
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
+Description: online handwriting recognition system with machine learning
+ Zinnia provides a simple, customizable, and portable dynamic OCR
+ system for hand-written input, based on Support Vector Machines.
+ .
+ Zinnia simply receives user pen strokes as coordinate data and outputs
+ the best matching characters sorted by SVM confidence. To maintain
+ portability, it has no rendering functionality. In addition to
+ recognition, Zinnia provides a training module capable of creating
+ highly efficient handwriting recognition models.
+ .
+ This package contains the shared libraries.
+
+# Package: python-zinnia
+# Section: python
+# Architecture: any
+# Provides:
+#  ${python:Provides},
+# Depends:
+#  ${misc:Depends},
+#  ${python:Depends},
+#  ${shlibs:Depends},
+# Description: Python binding for the zinnia library
+#  Zinnia provides a simple, customizable, and portable dynamic OCR
+#  system for hand-written input, based on Support Vector Machines.
+#  .
+#  Zinnia simply receives user pen strokes as coordinate data and outputs
+#  the best matching characters sorted by SVM confidence. To maintain
+#  portability, it has no rendering functionality. In addition to
+#  recognition, Zinnia provides a training module capable of creating
+#  highly efficient handwriting recognition models.
+#  .
+#  This package contains the Python binding.
+
+Package: zinnia-utils
+Section: utils
+Architecture: any
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
+Description: utils for the zinnia library
+ Zinnia provides a simple, customizable, and portable dynamic OCR
+ system for hand-written input, based on Support Vector Machines.
+ .
+ Zinnia simply receives user pen strokes as coordinate data and outputs
+ the best matching characters sorted by SVM confidence. To maintain
+ portability, it has no rendering functionality. In addition to
+ recognition, Zinnia provides a training module capable of creating
+ highly efficient handwriting recognition models.
+ .
+ This package provide utils for zinnia library.
