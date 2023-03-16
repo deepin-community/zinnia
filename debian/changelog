@@ -1,8 +1,17 @@
-zinnia (0.06-6+u001) UNRELEASED; urgency=medium
+zinnia (0.06-7deepin) unstable; urgency=medium
 
-  * update
+  * Regulate version name
 
- -- Debian Input Method Team <debian-input-method@lists.debian.org>  Sun, 24 Apr 2022 10:45:47 +0800
+ -- Yutao Meng <mengyutao@uniontech.com>  Tue, 21 Mar 2023 15:32:57 +0800
+
+zinnia (0.06-7) unstable; urgency=high
+
+  * Team upload
+  * Bump debian version
+    - The reason for this upload is to allow the Ubuntu version of the
+      package to become in sync with Debian.
+
+ -- Gunnar Hjalmarsson <gunnarhj@debian.org>  Mon, 01 Aug 2022 19:35:29 +0200
 
 zinnia (0.06-6) unstable; urgency=high
 
