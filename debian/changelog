@@ -1,3 +1,9 @@
+zinnia (0.06-7deepin1) unstable; urgency=medium
+
+  * Normalize ver2 (XdeepinY).
+
+ -- Tianyu Chen <sweetyfish@deepin.org>  Tue, 27 Aug 2024 16:07:16 +0800
+
 zinnia (0.06-7deepin) unstable; urgency=medium
 
   * Regulate version name
